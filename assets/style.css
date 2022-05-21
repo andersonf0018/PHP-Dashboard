@@ -1,0 +1,191 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans:400,600,700";
+
+.order-table {
+    position: relative
+}
+
+.order-table tr th {
+    background: #e8e9ef;
+}
+
+.order-table tr td:last-child,
+.order-table tr th:last-child {
+    text-align: right;
+}
+
+.order-table tr:last-child td {
+    border: none;
+}
+
+.order-table .badge {
+    color: #fff;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.badge a {
+    color: #fff;
+}
+
+.order-table .badge-complete {
+    background: #00c292;
+}
+
+.order-table .badge-pending {
+    background: #fb9678;
+}
+
+.order-table .badge-delete {
+    background: #FF0000;
+}
+
+.order-table .badge-edit {
+    background: #33A2FF;
+}
+
+.left-panel {
+    background: #fff;
+    height: 100vh;
+    padding: 0;
+    vertical-align: top;
+    width: 280px;
+    box-shadow: 1px 0 20px rgba(0, 0, 0, .08);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 55px;
+    z-index: 999;
+}
+
+.navbar .menu-title {
+    color: #41434d;
+    display: block;
+    font-family: open sans;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 50px;
+    padding: 0;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.navbar .navbar-nav li {
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+}
+
+.navbar .navbar-nav li a {
+    background: 0 0 !important;
+    color: #607d8b;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 26px;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+}
+
+.navbar .navbar-nav li a:hover,
+.navbar .navbar-nav li a:hover .menu-icon {
+    color: #03a9f3;
+}
+
+.navbar .navbar-nav li.menu-item-has-children a:before {
+    content: "";
+    position: absolute;
+    top: 23px;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #607d8b #607d8b transparent transparent;
+    transform: rotate(45deg);
+    transition: all 0.25s ease;
+}
+
+.right-panel {
+    background: #f1f2f7;
+    margin-left: 280px;
+    margin-top: 55px;
+}
+
+.right-panel .header {
+    background: #fff;
+    border-bottom: 1px solid #e8e9ed;
+    box-shadow: none;
+    clear: both;
+    padding: 0 30px;
+    height: 55px;
+    position: fixed;
+    left: 280px;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 999;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    transform: none !important;
+}
+
+.user-area {
+    float: right;
+    padding-right: 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.user-area .user-menu {
+    background: #fff;
+    border: none;
+    left: inherit !important;
+    right: 0;
+    top: 54px !important;
+    margin: 0;
+    max-width: 150px;
+    padding: 5px 10px;
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+    min-width: 150px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .05);
+}
+
+.user-area .user-menu .nav-link {
+    color: #607d8b;
+    display: block;
+    font-size: 13px;
+    line-height: 22px;
+    padding: 5px 0;
+}
+
+.user-area .user-menu .nav-link i {
+    margin-right: 10px;
+}
+
+.user-area .dropdown-toggle {
+    line-height: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-area .dropdown-toggle:after {
+    margin-left: 10px;
+}
+
+.card .box-link {
+    font-weight: 600;
+    font-size: 16px;
+    padding: 5px 0;
+}
+
+.card .box-link a {
+    color: #000;
+    text-decoration: underline;
+}
