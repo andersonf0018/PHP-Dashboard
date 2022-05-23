@@ -28,6 +28,21 @@ if (isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN'] != '') {
                <li class="menu-title">MENU</li>
                <?php if ($_SESSION['ADMIN_ROLE'] != 1) { ?>
                   <li class="menu-item-has-children dropdown">
+                     <a href="vendor_management.php"><i class="fa-thin fa-dolly"></i> PRODUTOS </a>
+                  </li>
+                  <li class="menu-item-has-children dropdown">
+                     <a href="vendor_management.php"><i class="fa-thin fa-bag-shopping"></i> CLIENTES </a>
+                  </li>
+                  <li class="menu-item-has-children dropdown">
+                     <a href="vendor_management.php"><i class="fal fa-portrait"></i> VENDEDORES </a>
+                  </li>
+                  <li class="menu-item-has-children dropdown">
+                     <a href="vendor_management.php"><i class="fa-thin fa-dolly"></i> FORNECEDORES </a>
+                  </li>
+                  <li class="menu-item-has-children dropdown">
+                     <a href="vendor_management.php"><i class="fa-thin fa-dolly"></i> ADMINS </a>
+                  </li>
+                  <li class="menu-item-has-children dropdown">
                      <a href="vendor_management.php"> VENDOR MANAGEMENT </a>
                   </li>
                   <li class="menu-item-has-children dropdown">
