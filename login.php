@@ -3,84 +3,65 @@ require('connection.php');
 require('functions.php');
 $msg = '';
 if (isset($_POST['submit'])) {
-   $username = get_safe_value($con, $_POST['username']);
-   $password = get_safe_value($con, $_POST['password']);
-   $sql = "select * from admin_users where username='$username' and password='$password'";
+   $email = get_safe_value($con, $_POST['email']);
+   $senha = get_safe_value($con, $_POST['senha']);
+   $sql = "SELECT * FROM usuarios WHERE email='$email' AND senha='$senha'";
    $res = mysqli_query($con, $sql);
    $count = mysqli_num_rows($res);
    if ($count > 0) {
       $row = mysqli_fetch_assoc($res);
-      if ($row['status'] == '0') {
-         $msg = "Account deactivated";
-      } else {
-         $_SESSION['ADMIN_LOGIN'] = 'yes';
-         $_SESSION['ADMIN_ID'] = $row['id'];
-         $_SESSION['ADMIN_USERNAME'] = $username;
-         $_SESSION['ADMIN_ROLE'] = $row['role'];
-         header('location:index.php');
-         die();
-      }
+      $_SESSION['ADMIN_LOGIN'] = 'logado';
+      $_SESSION['ADMIN_EMAIL'] = $email;
+      $_SESSION['ADMIN_NOME'] = $row['nome'];
+      $_SESSION['ADMIN_NIVEL'] = $row['nivel'];
+      header('location: index.php');
+      die();
    } else {
-      $msg = "PLEASE ENTER CORRECT LOGIN DETAILS";
+      $msg = "Credenciais de login inválidas!";
    }
 }
 ?>
 <!doctype html>
-<html class="no-js" lang="">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<html lang="pt-br">
 
 <head>
    <meta charset="utf-8">
+   <title>Painel Administrativo</title>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>Admin Login</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="assets/css/normalize.css">
-   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-   <link rel="stylesheet" href="assets/css/themify-icons.css">
-   <link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
-   <link rel="stylesheet" href="assets/css/flag-icon.min.css">
-   <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
-   <link rel="stylesheet" href="assets/css/style.css">
-   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+   <link rel="stylesheet" href="assets/style.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
-<style>
-   body {
-      background-image: url('imagens/background-img.jpg');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: 100% 100%;
-   }
-</style>
 
-<body class="bg-dark">
-   <div class="sufee-login d-flex align-content-center flex-wrap">
+<body class="bg-light">
+   <div class="d-flex align-content-center flex-wrap">
       <div class="container">
-         <h2 style="text-align:center; color:yellow; font-family:Arial, Helvetica, sans-serif; background-color:darkblue; font-weight:bold; font-size:55px; margin-top:10px;">ADMIN DASHBOARD IN PHP MYSQL DATABASE</h2>
-         <div class="login-content">
-            <div class="login-form mt-140">
-               <h1 style="color:#008080; font-family:serif; font-weight: bold; text-align:center;">ADMIN PANEL</h1>
-               <form method="post">
-                  <div class="form-group">
-                     <label><b>USERNAME</b></label>
-                     <input type="text" name="username" class="form-control" placeholder="        " required>
+         <div class="login-form">
+            <form method="post">
+               <h1 class="text-center">SRJ CONSTRUCT</h1>
+               <h2 class="text-center">Entrar</h2>
+               <?php if ($msg != '') { ?>
+                  <div class="alert alert-danger" role="alert">
+                     <div class="field_error"><?php echo $msg ?></div>
                   </div>
-                  <div class="form-group">
-                     <label><b>PASSWORD</b></label>
-                     <input type="password" name="password" class="form-control" placeholder="          " required>
-                  </div>
-                  <button type="submit" name="submit" style="background-color:#008080" class="btn btn-success btn-flat m-b-30 m-t-30">
-                     ADMIN LOGIN</button>
-               </form>
-               <div class="field_error"><?php echo $msg ?></div>
-            </div>
+               <?php } ?>
+               <div class="form-group">
+                  <input type="text" name="email" class="form-control" placeholder="E-mail" required>
+               </div>
+               <div class="form-group">
+                  <input type="password" name="senha" class="form-control" placeholder="Senha" required>
+               </div>
+               <div class="form-group">
+                  <button type="submit" name="submit" class="btn btn-primary btn-block">Entrar</button>
+               </div>
+            </form>
          </div>
       </div>
    </div>
-   <script src="assets/js/vendor/jquery-2.1.4.min.js" type="text/javascript"></script>
-   <script src="assets/js/popper.min.js" type="text/javascript"></script>
-   <script src="assets/js/plugins.js" type="text/javascript"></script>
-   <script src="assets/js/main.js" type="text/javascript"></script>
 </body>
 
 </html>

@@ -4,6 +4,10 @@ a {
     text-decoration: none !important;
 }
 
+.form-group {
+    margin-bottom: 8px;
+}
+
 .order-table {
     position: relative
 }
@@ -183,6 +187,15 @@ a {
     margin-left: 10px;
 }
 
+.card-body {
+    padding-left: 80px;
+}
+
+.box-title {
+    font-weight: 800;
+    line-height: 50px;
+}
+
 .card .box-link {
     font-weight: 600;
     font-size: 16px;
@@ -191,4 +204,139 @@ a {
 
 .card .box-link a {
     color: #000;
+}
+
+.btn-criar {
+    background: #03a9f3 !important;
+    border: none;
+}
+
+.obrigatorio {
+    color: red;
+}
+
+.btn-enviar {
+    background: #27ae60 !important;
+    margin-top: 24px;
+}
+
+.btn-enviar span,
+.btn-criar span,
+.btn-voltar span,
+.btn-editar span {
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.btn-voltar {
+    background: #f1c40f;
+    padding: 0.8rem 1rem;
+    border-radius: 0.3rem;
+}
+
+.btn-editar {
+    margin-left: 16px;
+    background: #33A2FF;
+    padding: 0.8rem 1rem;
+    border-radius: 0.3rem;
+}
+
+.box-detalhes {
+    margin-top: 24px;
+}
+
+.box-detalhes h4 {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.login-form form {
+    margin-bottom: 15px;
+    background: #f7f7f7;
+    box-shadow: 5px 5px 5px 5px #cfcfcf;
+    padding: 75px 50px;
+    border-radius: 16px;
+}
+
+.login-form h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.login-form h2 {
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.login-form input {
+    width: 300px;
+    margin-top: 14px;
+}
+
+.login-form button {
+    margin-top: 20px;
+    width: 150px;
+    background-color: #03a9f3 !important;
+    border: none;
+}
+
+.info-card {
+    border: none;
+    margin-left: 50px;
+}
+
+.info-card.vendas {
+    background: #dba650;
+}
+
+.info-card.produtos {
+    background: #27ae60;
+}
+
+.info-card.clientes {
+    background: #3498db;
+}
+
+.info-card.vendedores {
+    background: #34495e;
+}
+
+.info-card.fornecedores {
+    background: #8e44ad;
+}
+
+.info-card.admins {
+    background: #c0392b;
+}
+
+.info-card i,
+.info-card h5,
+.info-card p {
+    color: white;
+}
+
+.icone-box {
+    position: relative;
+}
+
+.icone-box i {
+    font-size: 60px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 30px;
 }
